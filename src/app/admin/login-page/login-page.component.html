@@ -42,7 +42,8 @@
       Required field
     </small>
     <small *ngIf="form.get('password')!.errors?.['minlength']">
-      Password should have min {{form.get('password')!.errors?.['minlength'].requiredLength}} characters. {{form.get('password')!.errors?.['minlength'].requiredLength - form.get('password')!.errors?.['minlength'].actualLength}} characters left.
+      Password should have min {{form.get('password')!.errors?.['minlength'].requiredLength}} characters. 
+      {{form.get('password')!.errors?.['minlength'].requiredLength - form.get('password')!.errors?.['minlength'].actualLength}} characters left.
     </small>
     </div>
 
