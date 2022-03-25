@@ -4,5 +4,7 @@ export interface Environment {
 }
 
 export interface FbAuthResponse {
-  idToken: string
+  idToken: string;
+  expiresIn: string;
+  refreshToken: string;
 }
