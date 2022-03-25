@@ -1,5 +1,11 @@
 # AngularBlog
 
+Test user for admin panel:
+Login: test@gmail.com
+Password: test12
+
+Project uses ngx-quill library
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
 ## Development server
