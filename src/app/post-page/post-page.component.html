@@ -1,26 +1,34 @@
-<div class="post">
-  <div class="header">
-    <h1>Post title</h1>
-
-    <button
-      class="btn btn-link"
-      routerLink="/"
-    >
-      Home
-    </button>
-  </div>
-
-  <div class="info">
-    <strong>Author here</strong>
-    <small>12.09.2022</small>
-  </div>
-
-  <div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolor eius consectetur neque consequuntur earum adipisci praesentium totam. Maiores, officiis?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolor eius consectetur neque consequuntur earum adipisci praesentium totam. Maiores, officiis?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolor eius consectetur neque consequuntur earum adipisci praesentium totam. Maiores, officiis?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolor eius consectetur neque consequuntur earum adipisci praesentium totam. Maiores, officiis?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolor eius consectetur neque consequuntur earum adipisci praesentium totam. Maiores, officiis?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolor eius consectetur neque consequuntur earum adipisci praesentium totam. Maiores, officiis?</p>
+<div *ngIf="post$ | async as post; else loading">
+  <div class="post">
+    <div class="header">
+      <h1>{{post.title}}</h1>
+  
+      <button
+        class="btn btn-link"
+        routerLink="/"
+      >
+        <- Back
+      </button>
+    </div>
+  
+    <div class="info">
+      <strong>{{post.author}}</strong>
+      <small>{{post.date | date:'short':null:'ru'}}</small>
+    </div>
+  
+    <div>
+      <quill-view-html [content]="post.text">
+      </quill-view-html>
+    </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Post did not found</p>
+  <button
+    class="btn btn-dark"
+    [routerLink]="['/']"
+  >
+    Back to main
+  </button>
+</ng-template>

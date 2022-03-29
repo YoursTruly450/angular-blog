@@ -19,16 +19,16 @@
         <td>{{i + 1}}</td>
         <td>{{post.author}}</td>
         <td>{{post.title}}</td>
-        <td>{{post.date | date:'medium'}}</td>
+        <td>{{post.date | date:'medium':null:'ru'}}</td>
         <td>
           <button
-            class="btn btn-link open"
+            class="btn btn-light open"
             [routerLink]="['/admin', 'post', post.id, 'edit']"
           >
             Open
           </button>
           <a
-            class="btn btn-link"
+            class="btn btn-danger"
             (click)="remove(post.id)"
           >
             Delete
