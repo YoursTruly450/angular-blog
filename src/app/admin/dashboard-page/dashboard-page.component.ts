@@ -11,7 +11,9 @@ import { PostService } from 'src/app/shared/post.service';
 export class DashboardPageComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
-  pSub: Subscription
+  pSub: Subscription;
+  dSub: Subscription;
+  searchStr = '';
 
   constructor(
     private postService: PostService
@@ -25,6 +27,9 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     if (this.pSub) {
       this.pSub.unsubscribe();
     }
+    if (this.dSub) {
+      this.dSub.unsubscribe();
+    }
   }
 
   getAllPosts() {
@@ -35,6 +40,11 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     );
   }
 
-  remove(id: string) {}
+  remove(id: string) {
+    this.dSub = this.postService.remove(id)
+      .subscribe((res) => {
+        this.posts = this.posts.filter((post) => post.id !== id);
+      })
+  }
 
 }
