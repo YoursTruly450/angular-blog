@@ -1,5 +1,7 @@
 # AngularBlog
 
+link to deploy: https://angular-blog-97708.web.app/
+
 Test user for admin panel (add '/admin' to link):
 Login: test@gmail.com
 Password: test12
